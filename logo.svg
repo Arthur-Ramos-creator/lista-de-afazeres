@@ -1,0 +1,35 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 760" role="img" aria-label="Arthur Ramos">
+  <defs>
+    <linearGradient id="stroke" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#f9fafb"/>
+      <stop offset="100%" stop-color="#cbd5e1"/>
+    </linearGradient>
+    <linearGradient id="fill" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#ffffff"/>
+      <stop offset="100%" stop-color="#f4f7fb"/>
+    </linearGradient>
+  </defs>
+  <rect width="760" height="760" fill="none"/>
+
+  <g fill="none" stroke="url(#stroke)" stroke-width="5" stroke-linecap="square">
+    <path d="M228 92h304"/>
+    <path d="M228 92v58"/>
+    <path d="M532 92v58"/>
+    <path d="M252 114h256"/>
+    <path d="M228 670h304"/>
+    <path d="M228 670v-58"/>
+    <path d="M532 670v-58"/>
+    <path d="M252 648h256"/>
+  </g>
+
+  <g fill="none" stroke="url(#fill)" stroke-width="7" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M245 506L362 224l110 282"/>
+    <path d="M295 392h134"/>
+    <path d="M381 224c95 0 156 46 156 114 0 60-39 103-104 117l110 167h-78l-102-157h-45v157h-64V224h127Z"/>
+  </g>
+
+  <g fill="url(#fill)">
+    <text x="382" y="571" text-anchor="middle" font-family="Didot, Bodoni MT, 'Times New Roman', serif" font-size="62" letter-spacing="10">ARTHUR</text>
+    <text x="382" y="638" text-anchor="middle" font-family="Didot, Bodoni MT, 'Times New Roman', serif" font-size="66" letter-spacing="10">RAMOS</text>
+  </g>
+</svg>

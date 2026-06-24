@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+  <meta name="theme-color" content="#2563eb" />
+  <title>Minha Lista de Tarefas</title>
+  <link rel="stylesheet" href="styles.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@300;400;500;700&display=swap" rel="stylesheet">
+</head>
+<body>
+  <header class="page-header">
+    <div class="header-brand" aria-hidden="true">
+      <img src="logo.svg" alt="" class="header-logo" />
+    </div>
+    <div class="header-center">
+      <h1 class="page-title" id="page-title-message">Bem-vindo!</h1>
+    </div>
+    <div class="header-buttons">
+      <button id="theme-toggle-button" type="button" aria-label="Ativar modo escuro" title="Ativar modo escuro">☀</button>
+      <button id="login-button" type="button">Login / Registrar</button>
+    </div>
+  </header>
+
+  <main>
+    <div class="lock-overlay hidden" id="lock-overlay">
+      <div class="lock-panel">
+        <h3>Faça login para continuar</h3>
+        <p>Você precisa entrar ou registrar para acessar suas tarefas.</p>
+        <button id="lock-login-button" type="button">Entrar / Registrar</button>
+      </div>
+    </div>
+    <form id="todo-form" class="todo-form">
+      <div class="form-field">
+        <label for="day-select">Dia da semana</label>
+        <select id="day-select">
+          <option value="monday">Segunda-feira</option>
+          <option value="tuesday">Terça-feira</option>
+          <option value="wednesday">Quarta-feira</option>
+          <option value="thursday">Quinta-feira</option>
+          <option value="friday">Sexta-feira</option>
+          <option value="saturday">Sábado</option>
+          <option value="sunday">Domingo</option>
+        </select>
+      </div>
+      <div class="form-field">
+        <label for="todo-input">Nova tarefa</label>
+        <input type="text" id="todo-input" placeholder="O que você quer fazer?" autocomplete="off" />
+        <span class="helper-text">Escolha o dia e escreva sua atividade.</span>
+      </div>
+      <button type="submit" class="add-button">+ Adicionar tarefa</button>
+    </form>
+
+    <section class="schedule-grid">
+      <div class="day-column">
+        <h2><span class="day-title-full">Segunda</span><span class="day-title-short">Seg</span></h2>
+        <ul id="day-monday" class="day-list"></ul>
+      </div>
+      <div class="day-column">
+        <h2><span class="day-title-full">Terça</span><span class="day-title-short">Ter</span></h2>
+        <ul id="day-tuesday" class="day-list"></ul>
+      </div>
+      <div class="day-column">
+        <h2><span class="day-title-full">Quarta</span><span class="day-title-short">Qua</span></h2>
+        <ul id="day-wednesday" class="day-list"></ul>
+      </div>
+      <div class="day-column">
+        <h2><span class="day-title-full">Quinta</span><span class="day-title-short">Qui</span></h2>
+        <ul id="day-thursday" class="day-list"></ul>
+      </div>
+      <div class="day-column">
+        <h2><span class="day-title-full">Sexta</span><span class="day-title-short">Sex</span></h2>
+        <ul id="day-friday" class="day-list"></ul>
+      </div>
+      <div class="day-column">
+        <h2><span class="day-title-full">Sábado</span><span class="day-title-short">Sáb</span></h2>
+        <ul id="day-saturday" class="day-list"></ul>
+      </div>
+      <div class="day-column">
+        <h2><span class="day-title-full">Domingo</span><span class="day-title-short">Dom</span></h2>
+        <ul id="day-sunday" class="day-list"></ul>
+      </div>
+    </section>
+
+    <p class="page-clock page-clock-below" id="current-date-time">Carregando data e hora...</p>
+  </main>
+
+  <footer class="page-footer">
+    <p class="footer-left">Feito por Arthur</p>
+    <p class="footer-center">Obrigado por usar esta ferramenta.</p>
+  </footer>
+
+  <div class="modal-overlay hidden" id="login-modal">
+    <div class="modal">
+      <h2>Entrar no site</h2>
+      <p>Digite seu nome e escolha sua identidade para adaptar a lista.</p>
+      <p id="login-error" class="modal-error hidden"></p>
+      <form id="login-form" autocomplete="on">
+        <label class="modal-field">
+          Nome
+          <input type="text" id="login-name" name="username" autocomplete="username" />
+        </label>
+        <label class="modal-field">
+          Senha
+          <input type="password" id="login-password" name="password" autocomplete="current-password" />
+        </label>
+        <label class="remember-field" for="remember-me">
+          <input type="checkbox" id="remember-me" name="rememberMe" />
+          Lembrar de mim
+        </label>
+        <div class="register-switch">
+          <button type="button" id="register-mode-button">Registrar novo usuário</button>
+          <p class="register-hint">Clique aqui para criar conta e escolher sexo.</p>
+        </div>
+        <div id="gender-section" class="modal-field hidden">
+          <span>Sexo</span>
+          <div class="gender-group">
+            <label><input type="radio" name="gender" value="female" /> Mulher</label>
+            <label><input type="radio" name="gender" value="male" /> Homem</label>
+            <label><input type="radio" name="gender" value="other" /> Outro</label>
+          </div>
+        </div>
+        <div class="modal-actions">
+          <button type="submit" id="submit-login">Entrar</button> 
+          <button type="button" id="cancel-login">Cancelar</button>
+        </div>
+      </form>
+    </div>
+  </div>
+  <div class="modal-overlay hidden" id="exit-modal">
+    <div class="modal">
+      <h2>Sair do aplicativo</h2>
+      <p>Tem certeza de sair do app?</p>
+      <div class="modal-actions">
+        <button type="button" id="confirm-exit">Sair</button>
+        <button type="button" id="cancel-exit">Cancelar</button>
+      </div>
+    </div>
+  </div>
+  <script src="script.js"></script>
+</body>
+</html>
